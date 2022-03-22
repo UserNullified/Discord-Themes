@@ -1,0 +1,24 @@
+/**
+ * @name Modulify
+ * @author null#4193
+ * @version 0.0.1
+ * @description A very customizable theme
+ * @source https://github.com/UserNullified/Discord-Themes
+*/
+
+@import url('titlebarurl');
+
+/*  Variables  */
+:root {
+    --modulify-titlebar-background-color: #202225;
+    
+    --modulify-titlebar-button-background-color: transparent;
+    --modulify-titlebar-button-background-color-hover: rgba(79,84,92,0.16);
+    --modulify-titlebar-button-icon-color: #b9bbbe;
+    --modulify-titlebar-button-icon-color-hover: #dcddde;
+
+    --modulify-titlebar-button-exit-button-background-color-hover: hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%);
+    --modulify-titlebar-button-exit-icon-color-hover: #ffffff;
+
+    --modulify-titlebar-wordmark-color: #72767d;
+}
