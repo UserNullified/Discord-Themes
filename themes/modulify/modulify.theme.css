@@ -3,10 +3,10 @@
  * @author null#4193
  * @version 0.0.1
  * @description A very customizable theme
- * @source https://github.com/UserNullified/Discord-Themes
+ * @source https://github.com/UserNullified/Discord-Themes/tree/main/themes/modulify
 */
 
-@import url('titlebarurl');
+@import url('https://usernullified.github.io/Discord-Themes/themes/modulify/titlebar.css');
 
 /*  Variables  */
 :root {
