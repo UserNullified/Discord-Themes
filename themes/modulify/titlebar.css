@@ -1,7 +1,9 @@
 /*  DEFAULT VARIABLES  */
 :root {
+    --modulify-titlebar-height: 22px;
     --modulify-titlebar-background-color: #202225;
     
+    --modulfiy-titlebar-button-width: 28px;
     --modulify-titlebar-button-background-color: transparent;
     --modulify-titlebar-button-background-color-hover: rgba(79,84,92,0.16);
     --modulify-titlebar-button-icon-color: #b9bbbe;
@@ -21,10 +23,10 @@
     otherwise there's a black bar at the top, did not find a way to color
     that, possibly it's the color of the actual window, which I am unable to change.
 
-    Also allow the changing of the background color.
+    Also allow the changing of the background color and height.
 */
 .titleBar-1it3bQ {
-    height: 22px;
+    height: var(--modulify-titlebar-height);
     margin-top: 0px;
 
     background-color: var(--modulify-titlebar-background-color);
@@ -37,11 +39,12 @@
     positioned using the top property, their height is fixed
     and the titlebar's flex display can be used to align them.
 
-    Also allow the changing of the background color and button svg color.
+    Also allow the changing of the background color, width and button svg color.
 */
 .titleBar-1it3bQ > div:not(:first-child) {
     top: 0px;
     height: auto;
+    width: var(--modulfiy-titlebar-button-width);
 
     background-color: var(--modulify-titlebar-button-background-color);
     color: var(--modulify-titlebar-button-icon-color);
