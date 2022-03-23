@@ -5,8 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            let table = document.getElementById("table");
+
+            let variables = [
+                ["--modulify-titlebar-background-color: #202225;", "Background Color of Titlebar"],
+        
+                ["--modulify-titlebar-button-background-color: transparent;", "Background Color of Titlebar Button"],
+                ["--modulify-titlebar-button-background-color-hover: rgba(79,84,92,0.16);", "Background Color of Titlebar Button On Hover"],
+                ["--modulify-titlebar-button-icon-color: #b9bbbe;", "Color of Titlebar Button Icon"],
+                ["--modulify-titlebar-button-icon-color-hover: #dcddde;", "Color of Titlebar Button Icon On Hover"],
+
+                ["--modulify-titlebar-button-exit-button-background-color-hover: hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%);", "Background Color of Titlebar Exit Button On Hover"],
+                ["--modulify-titlebar-button-exit-icon-color-hover: #ffffff;", "Background Color of Titlebar Exit Button Icon On Hover"],
+
+                ["--modulify-titlebar-wordmark-color: #72767d;", "Color of Titlebar Watermark"]
+            ]
+
+            for (let i = 0; i < variables.length; i++) {
+                let variableInfo = [];
+
+                let variableValues = variables[i][0].split(":");
+                variableValues[1] = variableValues[1].substring(0, variableValues[1].length - 1);
+
+                variableInfo[1] = variableValues[0];
+                variableInfo[2] = variables[i][1];
+                variableInfo[3] = variableValues[1];
+
+                let tempArray = [];
+                variableValues[0] = variableValues[0].substring(2).split("-");
+                variableValues[0].shift();
+                variableValues[0].forEach(element => {
+                    let tempString = element.charAt(0).toUpperCase() + element.slice(1);
+                    tempArray.push(tempString);
+                });
+                variableInfo[0] = tempArray.join(" ");
+
+                let row = document.createElement("tr");
+                variableInfo.forEach(element => {
+                    let column = document.createElement("td");
+                    column.innerText = element;
+                    row.appendChild(column);
+                });
+
+                table.appendChild(row);
+            }
+        })
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #151618;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: 'Open Sans', sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-size: 17px;
+            border-radius: 16px;
+        }  
+        
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            background-color: white;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: none;
+        }
+
+        .styled-table th:first-child {
+            border-top-left-radius: 10px;
+        }
+    
+        .styled-table th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+        .styled-table tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+    
+        .styled-table tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    Test
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Variable Name</th>
+                <th>CSS Variable Identifier</th>
+                <th>Affects</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+
+        </tbody>
+    </table>
 </body>
 </html>
